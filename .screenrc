@@ -1,0 +1,8 @@
+screen -t shell     0
+screen -t shell     1
+screen -t edit      2 
+screen -t python    3
+
+caption always "%{= kw}%?%-Lw%?%{+b kw}%n*%t%f %?(%u)%?%{= kw}%?%+Lw%?"
+startup_message off
+escape ^Yy
