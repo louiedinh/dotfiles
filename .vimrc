@@ -63,3 +63,6 @@ filetype plugin indent on
 
 "Turn of auto-complete on .
 let g:jedi#popup_on_dot = 0
+
+" Configure Python checkers
+let g:syntastic_python_checkers=['flake8', 'python']
