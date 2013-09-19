@@ -46,6 +46,7 @@
 		      ("listening" . ?l)
 		      ("watching" . ?a)
 		      (:endgroup . nil)
+		      ("weekly_goals" . ?g)
 		      ("away" . ?y)))
 
 (setq org-tags-exclude-from-inheritance '("study" "programming" "writing" "social" "errand" "reading" "listening" "watching"))
@@ -54,21 +55,22 @@
 (setq org-agenda-custom-commands
 '(("l" "My Life in a Buffer"
    ((agenda "")
-    (tags "study")
-    (tags "programming")
-    (tags "writing")
-    (tags "social")
-    (tags "errand")
-    (tags "reading")
-    (tags "listening")
-    (tags "watching")))))
+    (tags-todo "weekly_goals")
+    (tags-todo "study")
+    (tags-todo "programming")
+    (tags-todo "writing")
+    (tags-todo "social")
+    (tags-todo "errand")
+    (tags-todo "reading")
+    (tags-todo "listening")
+    (tags-todo "watching")))))
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(org-agenda-files (quote ("~/Dropbox/Org/goals.org" "~/Dropbox/Org/projects.org" "~/Dropbox/Org/todos.org"))))
+ '(org-agenda-files (quote ("~/Dropbox/Org/goals.org" "~/Dropbox/Org/projects.org" "~/Dropbox/Org/humanity.org" "~/Dropbox/Org/todos.org" "~/Dropbox/Org/review.org"))))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
