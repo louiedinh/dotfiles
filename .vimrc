@@ -81,4 +81,4 @@ let g:syntastic_python_flake8_args='--ignore=E121,E128,E711,E301,E261,E241,E124,
 set autochdir
 
 " Set textwidth. Linewrap with gq<range>
-set textwidth=79
+" set textwidth=79
