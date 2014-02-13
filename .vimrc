@@ -17,6 +17,10 @@ colors zenburn-custom
 "Disable showmarks
 let g:showmarks_enable=0
 
+" remap '' to `` because it seems like '' jumps to line of last jump 
+" whereas `` jumps to the last position.
+map '' ``
+
 
 " Turn on highlighting search and clear on spacebar
 set hlsearch
@@ -61,8 +65,11 @@ call pathogen#infect()
 " Turn on filetype detection
 filetype plugin indent on
 
-"Turn of auto-complete on .
+"Turn off auto-complete on .
 let g:jedi#popup_on_dot = 0
+
+"=== Required flake8 to be installed. 
+"$ pip install flake8.
 
 " Configure Python checkers
 " Don't warn on
