@@ -85,7 +85,7 @@ let g:syntastic_python_flake8_args='--ignore=E121,E128,E711,E301,E261,E241,E124,
     \ --max-line-length=200'
 
 " Automatically switch to the open file's directory
-set autochdir
+" set autochdir
 
 " Set textwidth. Linewrap with gq<range>
 " set textwidth=79
