@@ -38,7 +38,7 @@
 ;; Configure tags
 (setq org-tag-alist '((:startgroup . nil)
 		      ("study" . ?s) 
-		      ("programming" . ?p)
+		      ("project" . ?p)
 		      ("writing" . ?w)
 		      ("social" . ?o)
 		      ("errand" . ?e)
@@ -49,7 +49,7 @@
 		      ("weekly_goals" . ?g)
 		      ("away" . ?y)))
 
-(setq org-tags-exclude-from-inheritance '("study" "programming" "writing" "social" "errand" "reading" "listening" "watching"))
+(setq org-tags-exclude-from-inheritance '("study" "project" "writing" "social" "errand" "reading" "listening" "watching"))
 
 ;; Custom Agenda
 (setq org-agenda-custom-commands
@@ -57,7 +57,7 @@
    ((agenda "")
     (tags-todo "weekly_goals")
     (tags-todo "study")
-    (tags-todo "programming")
+    (tags-todo "project")
     (tags-todo "writing")
     (tags-todo "social")
     (tags-todo "errand")
