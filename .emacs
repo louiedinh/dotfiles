@@ -19,15 +19,15 @@
 
 ; Org Mode
 
-(require 'org-install)
+(add-to-list 'load-path "~/Dropbox/lib/org-8.2.5h/lisp")
+(require 'org)
+(require 'org-protocol)
 
 ;; Activate org mode
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (add-hook 'org-mode-hook 'turn-on-font-lock)  ; org-mode buffers only
-
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-cc" 'org-capture)
@@ -91,6 +91,8 @@
 (setq org-marvin-files (quote ("~/Dropbox/Org/index.org" "~/Dropbox/Org/goals.org")))
 
 (defun org-export-marvin 1)
+
+(setq org-default-notes-file (concat org-directory "/notes.org"))
 
 (defun doodlebug (a b c)
  "Nonce function"
