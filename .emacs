@@ -23,6 +23,10 @@
 (require 'org)
 (require 'org-protocol)
 
+;; Set to the location of your Org files on your local system
+(setq org-directory "~/Dropbox/Org/")
+(setq org-default-notes-file (concat org-directory "inbox.org"))
+
 ;; Activate org mode
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (define-key global-map "\C-cl" 'org-store-link)
@@ -66,22 +70,21 @@
     (tags-todo "watching")))))
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(org-agenda-files (quote ("~/Dropbox/Org/goals.org" "~/Dropbox/Org/projects.org" "~/Dropbox/Org/humanity.org" "~/Dropbox/Org/todos.org" "~/Dropbox/Org/review.org"))))
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-agenda-files (quote ("~/Dropbox/Org/goals.org" "~/Dropbox/Org/projects.org" "~/Dropbox/Org/humanity.org" "~/Dropbox/Org/todos.org" "~/Dropbox/Org/review.org")))
+ '(org-capture-templates (quote (("i" "Insert into inbox" entry (file+headline "~/Dropbox/Org/inbox.org" "To File") "** TODO%i" :immediate-finish t)))))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
 ;;Setup MobileOrg
 (setq org-mobile-directory "~/Dropbox/MobileOrg")
-;; Set to the location of your Org files on your local system
-(setq org-directory "~/Dropbox/Org")
 ;; Set to the name of the file where new notes will be stored
 (setq org-mobile-inbox-for-pull "~/Dropbox/Org/mobileorg.org")
 ;; Set to <your Dropbox root directory>/MobileOrg.
@@ -92,7 +95,6 @@
 
 (defun org-export-marvin 1)
 
-(setq org-default-notes-file (concat org-directory "/notes.org"))
 
 (defun doodlebug (a b c)
  "Nonce function"
