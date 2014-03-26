@@ -29,6 +29,8 @@ set hlsearch
 " --------------------
 " TagList
 " --------------------
+:let &tags=globpath('~/.tags', '*')
+
 " F4: Switch on/off TagList
 nnoremap <silent> T :TlistToggle<CR>
 " TagListTagName - Used for tag names

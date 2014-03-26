@@ -1,0 +1,4 @@
+Add in crontab
+link all dot files
+create a .tags directory in ~
+Install exhuberant ctags, flake8

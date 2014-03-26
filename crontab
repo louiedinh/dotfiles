@@ -1,0 +1,2 @@
+# m h  dom mon dow   command
+1 * * * * ctags -R -o ~/squid.ctags /var/squid/sites
