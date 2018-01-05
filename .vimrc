@@ -91,3 +91,6 @@ let g:syntastic_python_flake8_args='--ignore=E121,E128,E711,E301,E261,E241,E124,
 
 " Set textwidth. Linewrap with gq<range>
 " set textwidth=79
+
+" Language specific indentation
+autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
