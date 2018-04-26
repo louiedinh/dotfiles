@@ -4,3 +4,6 @@ screen -t edit      1
 caption always "%{= kw}%?%-Lw%?%{+b kw}%n*%t%f %?(%u)%?%{= kw}%?%+Lw%?"
 startup_message off
 escape ^Yy
+
+# Start screen as a login shell to force execution of .bash_profile
+shell -$SHELL
