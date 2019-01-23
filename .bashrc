@@ -8,3 +8,4 @@ then
       source ~/.bashlocalrc
 fi
 
+alias cdf="cd ~/Code/flavour/"
