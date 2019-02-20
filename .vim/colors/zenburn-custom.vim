@@ -408,7 +408,7 @@ if exists("g:zenburn_high_Contrast") && g:zenburn_high_Contrast
     hi LineNr          guifg=#9fafaf guibg=#161616
 else
     " Original, lighter background
-    hi Normal          guifg=#dcdccc guibg=none
+    hi Normal          guifg=#dcdccc guibg=#3f3f3f
     hi CursorLine      guibg=#434443
     if exists("g:zenburn_unified_CursorColumn") && g:zenburn_unified_CursorColumn
         hi CursorColumn    guibg=#434343
