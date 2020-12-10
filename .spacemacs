@@ -32,12 +32,7 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(clojure
-     markdown
-     clojure
-     markdown
-     csv
-     sql
+   '(markdown
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -47,8 +42,9 @@ This function should only modify configuration layer settings."
                       auto-completion-enable-help-tooltip t
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-enable-sort-by-usage t)
-     ;; better-defaults
+     csv
      (clojure :variables
+              clojure-toplevel-inside-comment-form t
               clojure-enable-linters 'clj-kondo)
      github
      emacs-lisp
@@ -57,13 +53,15 @@ This function should only modify configuration layer settings."
      ;; lsp
      ;; markdown
      multiple-cursors
-     ;; org
+     org
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
+     sql
+     syntax-checking
      treemacs)
 
 
@@ -506,6 +504,7 @@ configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq insert-directory-program "gls" dired-use-ls-dired t)
+  (setq org-startup-folded t)
   )
 
 (defun dotspacemacs/user-load ()
