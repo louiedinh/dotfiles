@@ -2,3 +2,8 @@ Add in crontab
 link all dot files
 create a .tags directory in ~
 Install exhuberant ctags, flake8
+
+Spacemacs
+=========
+1. Follow Spacemacs instructions (clone spacemacs into .emacs.d)
+2. Symlink .spacemacs from dotfiles to home
