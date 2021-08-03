@@ -12,3 +12,7 @@ fi
 ## Personal Aliases
 # Expand aliases
 shopt -s expand_aliases
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
