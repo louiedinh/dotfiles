@@ -16,3 +16,8 @@ shopt -s expand_aliases
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+## Work bashrc
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bashrc_abcellera
+fi

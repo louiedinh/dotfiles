@@ -1,3 +1,6 @@
+" --------------------
+"  Vim Settings
+" --------------------
 " Set Terminal Colors
 :set  t_Co=256
 
@@ -21,10 +24,73 @@ let g:showmarks_enable=0
 " whereas `` jumps to the last position.
 map '' ``
 
-
 " Turn on highlighting search and clear on spacebar
 set hlsearch
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+" --------------------
+" Initialize plugins
+" --------------------
+call plug#begin()
+
+" auto-load .vimrc
+Plug 'embear/vim-localvimrc'
+" Quick-support autoformatting
+Plug 'vim-autoformat/vim-autoformat'
+" Load .conda-dev python-language-server for auto-completion
+" and type checking
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" Git integration
+Plug 'tpope/vim-fugitive'
+" Syntax checking
+Plug 'vim-syntastic/syntastic'
+
+call plug#end()
+
+" --------------------
+" Localvim
+" "--------------------
+let g:localvimrc_sandbox=0
+let g:localvimrc_whitelist='/Users/louie.dinh/Code/abcd/*'
+
+"" --------------------
+" Autoformat
+" --------------------
+noremap <F3> :Autoformat<CR>
+
+"" --------------------
+" LSP
+" --------------------
+
+let g:lsp_diagnostics_enabled = 0  
+
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gs <plug>(lsp-document-symbol-search)
+    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> gi <plug>(lsp-implementation)
+    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+    nmap <buffer> K <plug>(lsp-hover)
+    inoremap <buffer> <expr><c-f> lsp#scroll(+4)
+    inoremap <buffer> <expr><c-d> lsp#scroll(-4)
+
+    let g:lsp_format_sync_timeout = 1000
+    autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+    
+    " refer to doc to add more commands
+endfunction
+
 
 " --------------------
 " TagList
@@ -61,9 +127,6 @@ let Tlist_WinWidth = 50
 " Show leader key entry
 set showcmd
 
-" Start using Pathogen
-call pathogen#infect()
-
 " Turn on filetype detection
 filetype plugin indent on
 
@@ -83,8 +146,13 @@ let g:jedi#popup_on_dot = 0
 "   E241 multiple spaces after ':'
 "   E124 closing bracket does not match visual indentation
 "   E126 continuation line over-indented for hanging indent
-let g:syntastic_python_flake8_args='--ignore=E121,E128,E711,E301,E261,E241,E124,E126
-    \ --max-line-length=200'
+let g:syntastic_python_flake8_args='--max-line-length=200'
+let g:syntastic_python_checkers = ['python', 'flake8']
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_always_populate_loc_list = 1
+
+
+
 
 " Automatically switch to the open file's directory
 " set autochdir
