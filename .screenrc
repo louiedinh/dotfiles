@@ -1,6 +1,6 @@
 screen -t shell     0
 screen -t edit      1 
-screen -t jupyter   2 
+screen -t jupyter   2
 
 caption always "%{= kw}%?%-Lw%?%{+b kw}%n*%t%f %?(%u)%?%{= kw}%?%+Lw%?"
 startup_message off
