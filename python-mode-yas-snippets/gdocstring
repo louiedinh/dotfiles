@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: gdocstring
+# key: gdoc
+# --
+"""$1
+
+$2
+
+Args:
+  $3
+
+Returns:
+  $4
+"""
