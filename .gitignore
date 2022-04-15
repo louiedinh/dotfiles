@@ -1,1 +1,6 @@
-*~
+*.swp
+*.ipynb
+
+# Emacs temporary files
+.#*
+*~undo-tree~
