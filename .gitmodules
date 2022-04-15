@@ -1,3 +1,9 @@
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "emacs/cook-mode"]
+	path = emacs/cook-mode
+	url = https://github.com/cooklang/cook-mode
+[submodule "elisp/cook-mode"]
+	path = emacs-site-lisp/cook-mode
+	url = https://github.com/cooklang/cook-mode

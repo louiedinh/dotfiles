@@ -1,0 +1,1 @@
+../cook-mode/cook-mode.el

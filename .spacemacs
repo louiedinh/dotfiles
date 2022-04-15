@@ -559,6 +559,7 @@ configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq org-startup-folded t)
+
   )
 
 
@@ -576,6 +577,12 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;
+  ;; Extended load path
+  (let ((default-directory  "~/.emacs-site-lisp/"))
+    (normal-top-level-add-subdirs-to-load-path))
+
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;;
   ;; Clojure Configurations
@@ -598,7 +605,12 @@ before packages are loaded."
   ;; Python
   (when (executable-find "ipython")
     (setq python-shell-interpreter "ipython"))
-  )
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;
+  ;; Cook Mode - Source is in ~/.emacs-site-lisp
+  (require 'cook-mode)
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
