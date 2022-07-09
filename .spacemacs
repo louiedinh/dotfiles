@@ -57,7 +57,7 @@ This function should only modify configuration layer settings."
               clojure-enable-linters 'clj-kondo)
      github
      emacs-lisp
-     ;; git
+     git
 
      ;; helm
      ivy
@@ -85,7 +85,7 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(envrc)
+   dotspacemacs-additional-packages '(envrc ace-jump-mode)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -580,8 +580,7 @@ before packages are loaded."
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;;
   ;; Extended load path
-  (let ((default-directory  "~/.emacs-site-lisp/"))
-    (normal-top-level-add-subdirs-to-load-path))
+  (add-to-list 'load-path "~/.emacs-site-lisp/")
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;;
@@ -610,6 +609,17 @@ before packages are loaded."
   ;;
   ;; Cook Mode - Source is in ~/.emacs-site-lisp
   (require 'cook-mode)
+
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;
+  ;; Ace Jump Mode
+  (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;
+  ;; Abcellera
+  (define-key global-map (kbd "C-c d") 'abcd/buildpig-infer-deps)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -629,7 +639,7 @@ This function is called at the very end of Spacemacs initialization."
  '(ivy-yasnippet-expand-keys 'smart t)
  '(lsp-pylsp-plugins-pydocstyle-enabled nil)
  '(package-selected-packages
-   '(yaml-mode svg-tag-mode python-pytest vimrc-mode helm helm-core dactyl-mode projectile-ripgrep envrc direnv web-beautify tern prettier-js nodejs-repl livid-mode skewer-mode js2-refactor multiple-cursors js2-mode js-doc import-js grizzl impatient-mode simple-httpd add-node-modules-path yapfify stickyfunc-enhance sphinx-doc pytest pyenv-mode py-isort pippel pipenv pyvenv pip-requirements lsp-python-ms lsp-pyright live-py-mode importmagic epc ctable concurrent deferred helm-pydoc helm-gtags helm-cscope xcscope ggtags dap-mode lsp-treemacs bui lsp-mode cfrs posframe cython-mode counsel-gtags counsel swiper ivy company-anaconda blacken anaconda-mode pythonic vmd-mode mmm-mode markdown-toc markdown-mode gh-md emoji-cheat-sheet-plus company-emoji company ws-butler writeroom-mode winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil toc-org symon symbol-overlay string-inflection sql-indent spaceline-all-the-icons restart-emacs request rainbow-delimiters popwin pcre2el password-generator paradox overseer org-superstar open-junk-file nameless move-text macrostep lorem-ipsum link-hint indent-guide hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-org helm-mode-manager helm-make helm-ls-git helm-flx helm-descbinds helm-cider helm-ag grip-mode google-translate golden-ratio github-search github-clone git-gutter-fringe+ gist font-lock+ flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-easymotion evil-cleverparens evil-args evil-anzu emr elisp-slime-nav editorconfig dumb-jump dotenv-mode dired-quick-sort diminish devdocs define-word csv-mode column-enforce-mode clean-aindent-mode cider-eval-sexp-fu centered-cursor-mode browse-at-remote auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line))
+   '(ace-jump-mode yaml-mode svg-tag-mode python-pytest vimrc-mode helm helm-core dactyl-mode projectile-ripgrep envrc direnv web-beautify tern prettier-js nodejs-repl livid-mode skewer-mode js2-refactor multiple-cursors js2-mode js-doc import-js grizzl impatient-mode simple-httpd add-node-modules-path yapfify stickyfunc-enhance sphinx-doc pytest pyenv-mode py-isort pippel pipenv pyvenv pip-requirements lsp-python-ms lsp-pyright live-py-mode importmagic epc ctable concurrent deferred helm-pydoc helm-gtags helm-cscope xcscope ggtags dap-mode lsp-treemacs bui lsp-mode cfrs posframe cython-mode counsel-gtags counsel swiper ivy company-anaconda blacken anaconda-mode pythonic vmd-mode mmm-mode markdown-toc markdown-mode gh-md emoji-cheat-sheet-plus company-emoji company ws-butler writeroom-mode winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil toc-org symon symbol-overlay string-inflection sql-indent spaceline-all-the-icons restart-emacs request rainbow-delimiters popwin pcre2el password-generator paradox overseer org-superstar open-junk-file nameless move-text macrostep lorem-ipsum link-hint indent-guide hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-org helm-mode-manager helm-make helm-ls-git helm-flx helm-descbinds helm-cider helm-ag grip-mode google-translate golden-ratio github-search github-clone git-gutter-fringe+ gist font-lock+ flycheck-package flycheck-elsa flx-ido fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-easymotion evil-cleverparens evil-args evil-anzu emr elisp-slime-nav editorconfig dumb-jump dotenv-mode dired-quick-sort diminish devdocs define-word csv-mode column-enforce-mode clean-aindent-mode cider-eval-sexp-fu centered-cursor-mode browse-at-remote auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line))
  '(python-shell-interpreter "ipython")
  '(python-shell-interpreter-args "-i --simple-prompt")
  '(safe-local-variable-values

@@ -1,1 +1,1 @@
-../cook-mode/cook-mode.el
+/Users/Personal/Code/elisp/recipes/cook-mode/cook-mode.el
